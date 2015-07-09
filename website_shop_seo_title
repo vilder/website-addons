@@ -1,0 +1,10 @@
+    <!--t t-set="additional_title">Shop</t-->
+    <t t-if="category and category.parent_id">
+        <t t-set="additional_title" t-value="category.parent_id.name + ' - ' + category.name" />
+        <t t-set="title"  t-value="additional_title + ' | ' + (website or res_company).name"/>
+    </t>
+
+    <t t-if="category and not category.parent_id">
+        <t t-set="additional_title" t-value="category.name" />
+        <t t-set="title"  t-value="additional_title + ' | ' + (website or res_company).name"/>
+    </t>
